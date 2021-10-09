@@ -1,0 +1,534 @@
+
+DAX Formula
+13
+<p></p><p></p><p></p><div style="line-height: 12.6px; margin-top: 12pt; margin-bottom: 2pt; margin-left: 0.1in; text-indent: -0.1in; direction: ltr; unicode-bidi: embed; word-break: normal;"><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">Avg1stHrstoRes =
+AVERAGE(ZendeskTicketSystem[FirstRspHrs])</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">OpenTickets&nbsp;=&nbsp;COUNTROWS(FILTER(ZendeskTicketSystem,ZendeskTicketSystem[Status]
+= "Open"))</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">AvgDaysOpen&nbsp;=
+CALCULATE(AVERAGE(ZendeskTicketSystem[DaysOpen]),
+FILTER(ZendeskTicketSystem,&nbsp;ZendeskTicketSystem[WksBkActual] = 52))</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">NewTickets&nbsp;=
+COUNTROWS(FILTER(ZendeskTicketSystem,ZendeskTicketSystem[Status] =
+"new"))+0</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">1stContactResolutionRate_CurrentWk
+=
+CALCULATE(AVERAGE(ZendeskTicketSystem[FirstContactResolutionRate]),&nbsp;ZendeskTicketSystem[WksBkActual]
+= 52)</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">1stContactResolutionRate_Last4Wks
+=</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">VAR WeeKback1 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 1</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">VAR WeeKback2 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 2</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">VAR WeeKback3 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 3</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">VAR WeeKback4 = MAX(ZendeskTicketSystem[WksBkActual])
+– 4</span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">
+RETURN</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">CALCULATE(AVERAGE(ZendeskTicketSystem[FirstContactResolutionRate]),&nbsp;ZendeskTicketSystem[WksBkActual]
+IN {WeeKback1, WeeKback2, WeeKback3, WeeKback4})</span><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">ColorScatteredPlot_2 =
+IF(AVERAGE(ZendeskTicketSystem[FirstRspHrs]) &lt; [*DyFirstReshrs]</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">&amp;&amp;
+AVERAGE(ZendeskTicketSystem[DaysOpen]) &lt; [*DyAvgDaysOpen], “#008000",</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">IF(AVERAGE(ZendeskTicketSystem[FirstRspHrs])
+&gt;= [*DyFirstReshrs]</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">&amp;&amp;
+AVERAGE(ZendeskTicketSystem[DaysOpen]) &gt;= [*DyAvgDaysOpen],
+"#b20000",</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">IF(AVERAGE(ZendeskTicketSystem[FirstRspHrs])
+&lt; [*DyFirstReshrs]</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">&amp;&amp;
+AVERAGE(ZendeskTicketSystem[DaysOpen]) &gt; [*DyAvgDaysOpen],
+"#ffc04c", "#ffc04c")</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">AvgTimeToClose&nbsp;=
+AVERAGE(ZendeskTicketSystem[TimeToCloseDays])</span><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">DyFirstReshrs&nbsp;=
+ALLSELECTED(FirstResphrs[FirstResphrs])</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">DyAvgDaysOpen&nbsp;=
+ALLSELECTED(AvgDaysOpen[AvgDaysOpen])</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">AvgFirstRspHrsCurrentWeek&nbsp;=
+CALCULATE(AVERAGE(ZendeskTicketSystem[FirstRspHrs]),
+FILTER(ZendeskTicketSystem,&nbsp;ZendeskTicketSystem[WksBkActual] = 52))</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">TestAvg1stRespHrs_Last4WksQuery =</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">VAR WeeKback1 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 1</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">VAR WeeKback2 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 2</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">VAR WeeKback3 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 3</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">VAR WeeKback4 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 4<br>
+&nbsp;&nbsp; RETURN</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">&nbsp;CALCULATE(AVERAGE(ZendeskTicketSystem[FirstRspHrs]),
+FILTER(ZendeskTicketSystem,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZendeskTicketSystem[WksBkActual]
+IN {WeeKback1, WeeKback2, WeeKback3, WeeKback4}))</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">OpenCategory% =
+DIVIDE([*OpenTickets], [*TotalOpenCategory], 0)</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">TotalTickets&nbsp;=
+COUNTROWS(ZendeskTicketSystem)</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">DayOfWeeks&nbsp;=
+FORMAT('ZendeskTicketSystem'[Created],"DDDD'")</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">CreatedHour&nbsp;=
+HOUR('ZendeskTicketSystem'[Created])</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">Agents
+=&nbsp;AgentName[AgentName]&amp; " " &amp; "("
+&amp;&nbsp;AgentName[OpenTickets] &amp; ")"&nbsp;</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;mso-line-height-alt:
+9.45pt">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p><p class="MsoNormal" style="line-height:150%"><span style="font-size:16.0pt;
+line-height:150%"><o:p>&nbsp;</o:p></span></p></div>
+
+<p><a href="https://docs.microsoft.com/en-us/dax/calculate-function-dax" target="_blank">calculate-function-dax</a><br></p>
+
+
+DAX Formula
+13
+<p></p><p></p><p></p><div style="line-height: 12.6px; margin-top: 12pt; margin-bottom: 2pt; margin-left: 0.1in; text-indent: -0.1in; direction: ltr; unicode-bidi: embed; word-break: normal;"><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">Avg1stHrstoRes =
+AVERAGE(ZendeskTicketSystem[FirstRspHrs])</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">OpenTickets&nbsp;=&nbsp;COUNTROWS(FILTER(ZendeskTicketSystem,ZendeskTicketSystem[Status]
+= "Open"))</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">AvgDaysOpen&nbsp;=
+CALCULATE(AVERAGE(ZendeskTicketSystem[DaysOpen]),
+FILTER(ZendeskTicketSystem,&nbsp;ZendeskTicketSystem[WksBkActual] = 52))</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">NewTickets&nbsp;=
+COUNTROWS(FILTER(ZendeskTicketSystem,ZendeskTicketSystem[Status] =
+"new"))+0</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">1stContactResolutionRate_CurrentWk
+=
+CALCULATE(AVERAGE(ZendeskTicketSystem[FirstContactResolutionRate]),&nbsp;ZendeskTicketSystem[WksBkActual]
+= 52)</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">1stContactResolutionRate_Last4Wks
+=</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">VAR WeeKback1 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 1</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">VAR WeeKback2 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 2</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">VAR WeeKback3 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 3</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">VAR WeeKback4 = MAX(ZendeskTicketSystem[WksBkActual])
+– 4</span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">
+RETURN</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">CALCULATE(AVERAGE(ZendeskTicketSystem[FirstContactResolutionRate]),&nbsp;ZendeskTicketSystem[WksBkActual]
+IN {WeeKback1, WeeKback2, WeeKback3, WeeKback4})</span><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">ColorScatteredPlot_2 =
+IF(AVERAGE(ZendeskTicketSystem[FirstRspHrs]) &lt; [*DyFirstReshrs]</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">&amp;&amp;
+AVERAGE(ZendeskTicketSystem[DaysOpen]) &lt; [*DyAvgDaysOpen], “#008000",</span><span style="font-size:16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">IF(AVERAGE(ZendeskTicketSystem[FirstRspHrs])
+&gt;= [*DyFirstReshrs]</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">&amp;&amp;
+AVERAGE(ZendeskTicketSystem[DaysOpen]) &gt;= [*DyAvgDaysOpen],
+"#b20000",</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">IF(AVERAGE(ZendeskTicketSystem[FirstRspHrs])
+&lt; [*DyFirstReshrs]</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-top:2.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:.5in;line-height:150%"><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">&amp;&amp;
+AVERAGE(ZendeskTicketSystem[DaysOpen]) &gt; [*DyAvgDaysOpen],
+"#ffc04c", "#ffc04c")</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">AvgTimeToClose&nbsp;=
+AVERAGE(ZendeskTicketSystem[TimeToCloseDays])</span><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">DyFirstReshrs&nbsp;=
+ALLSELECTED(FirstResphrs[FirstResphrs])</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;line-height:
+150%"><span style="font-size:16.0pt;line-height:150%;font-family:Wingdings;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+color:#92278F">§</span><span style="font-size:16.0pt;line-height:150%;
+font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:black">DyAvgDaysOpen&nbsp;=
+ALLSELECTED(AvgDaysOpen[AvgDaysOpen])</span><span style="font-size:16.0pt;
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">AvgFirstRspHrsCurrentWeek&nbsp;=
+CALCULATE(AVERAGE(ZendeskTicketSystem[FirstRspHrs]),
+FILTER(ZendeskTicketSystem,&nbsp;ZendeskTicketSystem[WksBkActual] = 52))</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">TestAvg1stRespHrs_Last4WksQuery =</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">VAR WeeKback1 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 1</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">VAR WeeKback2 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 2</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">VAR WeeKback3 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 3</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">VAR WeeKback4 =
+MAX(ZendeskTicketSystem[WksBkActual]) - 4<br>
+&nbsp;&nbsp; RETURN</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin: 2pt 0in 4pt 0.6in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:
+16.0pt;line-height:150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:Helvetica;color:black">&nbsp;CALCULATE(AVERAGE(ZendeskTicketSystem[FirstRspHrs]),
+FILTER(ZendeskTicketSystem,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZendeskTicketSystem[WksBkActual]
+IN {WeeKback1, WeeKback2, WeeKback3, WeeKback4}))</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">OpenCategory% =
+DIVIDE([*OpenTickets], [*TotalOpenCategory], 0)</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">TotalTickets&nbsp;=
+COUNTROWS(ZendeskTicketSystem)</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">DayOfWeeks&nbsp;=
+FORMAT('ZendeskTicketSystem'[Created],"DDDD'")</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">CreatedHour&nbsp;=
+HOUR('ZendeskTicketSystem'[Created])</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 2pt; text-indent: -0.1in; line-height: 150%; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-size:16.0pt;line-height:150%;
+font-family:Wingdings;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+Helvetica;color:#92278F">§</span><span style="font-size:16.0pt;line-height:
+150%;font-family:&quot;Tw Cen MT&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:Helvetica;color:black">Agents
+=&nbsp;AgentName[AgentName]&amp; " " &amp; "("
+&amp;&nbsp;AgentName[OpenTickets] &amp; ")"&nbsp;</span><span style="font-size: 16pt; line-height: 150%; font-family: Helvetica, sans-serif;"><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:2.0pt;text-indent:-.1in;mso-line-height-alt:
+9.45pt">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p><p class="MsoNormal" style="line-height:150%"><span style="font-size:16.0pt;
+line-height:150%"><o:p>&nbsp;</o:p></span></p></div>
+
+<p><a href="https://docs.microsoft.com/en-us/dax/calculate-function-dax" target="_blank">calculate-function-dax</a><br></p>
+
